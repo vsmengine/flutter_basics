@@ -4,16 +4,17 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   const MyApp({ Key key }) : super(key: key);
+  
   @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  var questionIndex = 0;
-  void answer() {
+  var _questionIndex = 0;
+  void _answer() {
     // print('Answer 1 for the question is provided!');
     setState(() {
-      questionIndex = questionIndex + 1;
+      _questionIndex = _questionIndex + 1;
     });
   }
 
@@ -33,16 +34,16 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Center(
           child: Column(children: <Widget>[
-            Text(questions.elementAt(questionIndex)),
+            Text(questions.elementAt(_questionIndex)),
             RaisedButton(
               child: Text('Answer 1'),
-              onPressed: answer,),
+              onPressed: _answer,),
             RaisedButton(
               child: Text('Answer 2'),
-              onPressed: answer,),
+              onPressed: _answer,),
             RaisedButton(
               child: Text('Answer 3'),
-              onPressed: answer,),
+              onPressed: _answer,),
           ],)
         )
       ),
