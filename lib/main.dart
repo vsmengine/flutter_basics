@@ -5,7 +5,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   const MyApp({Key key}) : super(key: key);
   void answer() {
-    print('Answer for the question is provided!');
+    print('Answer 1 for the question is provided!');
   }
 
   @override
@@ -24,10 +24,12 @@ class MyApp extends StatelessWidget {
               onPressed: answer,),
             RaisedButton(
               child: Text('Answer 2'),
-              onPressed: answer,),
+              onPressed: () => print('Answer 2 for the question is provided!'),),
             RaisedButton(
               child: Text('Answer 3'),
-              onPressed: answer,),
+              onPressed: () => {
+                print('Answer 3 for the question is provided!')
+              },),
           ],)
         )
       ),
