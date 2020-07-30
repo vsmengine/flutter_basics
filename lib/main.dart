@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import './question.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   const MyApp({ Key key }) : super(key: key);
-  
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -34,7 +35,7 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Center(
           child: Column(children: <Widget>[
-            Text(questions.elementAt(_questionIndex)),
+            Question(questions.elementAt(_questionIndex)),
             RaisedButton(
               child: Text('Answer 1'),
               onPressed: _answer,),
