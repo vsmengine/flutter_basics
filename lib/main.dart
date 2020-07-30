@@ -7,7 +7,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Text('hello !'),
+      title: 'Welcome to Flutter',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Welcome to Flutter'),
+        ),
+        body: Center(
+          child: Column(children: <Widget>[
+            Text('The Question'),
+            RaisedButton(
+              child: Text('Answer 1'),
+              onPressed: null,),
+            RaisedButton(
+              child: Text('Answer 2'),
+              onPressed: null,),
+            RaisedButton(
+              child: Text('Answer 3'),
+              onPressed: null,),
+          ],)
+        )
+      ),
     );
   }
 }
