@@ -33,20 +33,18 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('Welcome to Flutter'),
         ),
-        body: Center(
-          child: Column(children: <Widget>[
-            Question(questions.elementAt(_questionIndex)),
-            RaisedButton(
-              child: Text('Answer 1'),
-              onPressed: _answer,),
-            RaisedButton(
-              child: Text('Answer 2'),
-              onPressed: _answer,),
-            RaisedButton(
-              child: Text('Answer 3'),
-              onPressed: _answer,),
-          ],)
-        )
+        body: Column(children: <Widget>[
+          Question(questions.elementAt(_questionIndex)),
+          RaisedButton(
+            child: Text('Answer 1'),
+            onPressed: _answer,),
+          RaisedButton(
+            child: Text('Answer 2'),
+            onPressed: _answer,),
+          RaisedButton(
+            child: Text('Answer 3'),
+            onPressed: _answer,),
+        ],)
       ),
     );
   }
