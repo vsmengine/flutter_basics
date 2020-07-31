@@ -23,10 +23,18 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     var questions = [
-      'What is your favorite color?',
-      'what is your favorite flower?',
-      'what is your favorite fruit?',
-      'All questions are answered successfully!',
+      {
+        'question': 'What is your favorite color?',
+        'answers': ['red', 'blue', 'green'],
+      },
+      {
+        'question': 'What is your favorite flower?',
+        'answers': ['rose', 'sunflower', 'jasmine'],
+      },
+      {
+        'question': 'What is your favorite fruit?',
+        'answers': ['apple', 'orange', 'banana'],
+      }
     ];
     return MaterialApp(
       title: 'Welcome to Flutter',
@@ -35,8 +43,12 @@ class _MyAppState extends State<MyApp> {
           title: Text('Welcome to Flutter'),
         ),
         body: Column(children: <Widget>[
-          Question(questions.elementAt(_questionIndex)),
-          Answer(_answer),
+          Question(questions.elementAt(_questionIndex)['question']),
+          ...(questions.elementAt(_questionIndex)['answers'] as List<String>).map(
+            (answer) {
+              return Answer(_answer, answer);
+            }
+          ).toList(),
         ],)
       ),
     );
