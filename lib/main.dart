@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './quiz.dart';
+import './alert.dart';
 
 void main() => runApp(MyApp());
 
@@ -42,17 +43,16 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Welcome to Flutter',
       home: Scaffold(
-          appBar: AppBar(
-            title: Text('Welcome to Flutter'),
-          ),
-          body: _questionIndex < _questions.length
-              ? Quiz(
-                  quizIndex: _questionIndex,
-                  quizAnswer: _answer,
-                  quizQues: _questions)
-              : Center(
-                  child: Text('You are Done!'),
-                )),
+        appBar: AppBar(
+          title: Text('Welcome to Flutter'),
+        ),
+        body: _questionIndex < _questions.length
+            ? Quiz(
+                quizIndex: _questionIndex,
+                quizAnswer: _answer,
+                quizQues: _questions)
+            : Alert(),
+      ),
     );
   }
 }
