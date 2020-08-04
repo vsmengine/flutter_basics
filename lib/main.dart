@@ -46,7 +46,10 @@ class _MyAppState extends State<MyApp> {
             title: Text('Welcome to Flutter'),
           ),
           body: _questionIndex < _questions.length
-              ? Quiz(_questionIndex, _answer, _questions)
+              ? Quiz(
+                  quizIndex: _questionIndex,
+                  quizAnswer: _answer,
+                  quizQues: _questions)
               : Center(
                   child: Text('You are Done!'),
                 )),
