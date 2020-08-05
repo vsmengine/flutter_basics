@@ -40,16 +40,19 @@ class _MyAppState extends State<MyApp> {
       ],
     }
   ];
+
+  void _resetQuiz() {
+    _totalScore = 0;
+    setState(() {
+      _questionIndex = 0;
+    });
+  }
+
   void _answer(int score) {
     _totalScore += score;
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
-    // if (_questionIndex < _questions.length) {
-    //   print('You have more questions!');
-    // } else {
-    //   print('You are done!');
-    // }
   }
 
   @override
@@ -65,7 +68,7 @@ class _MyAppState extends State<MyApp> {
                 quizIndex: _questionIndex,
                 quizAnswer: _answer,
                 quizQues: _questions)
-            : Alert(_totalScore),
+            : Alert(_totalScore, _resetQuiz),
       ),
     );
   }
