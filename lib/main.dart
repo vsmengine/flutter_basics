@@ -13,29 +13,43 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
+  var _totalScore = 0;
   var _questions = [
     {
       'question': 'What is your favorite color?',
-      'answers': ['red', 'blue', 'green'],
+      'answers': [
+        {'text':'red', 'score': 1},
+        {'text':'blue', 'score': 2},
+        {'text':'green', 'score': 3},
+      ],
     },
     {
       'question': 'What is your favorite flower?',
-      'answers': ['rose', 'sunflower', 'jasmine'],
+      'answers': [
+        {'text':'rose', 'score': 1},
+        {'text':'sunflower', 'score': 2},
+        {'text':'jasmine', 'score': 3},
+      ],
     },
     {
       'question': 'What is your favorite fruit?',
-      'answers': ['apple', 'orange', 'banana'],
+      'answers': [
+        {'text':'apple', 'score': 1},
+        {'text':'orange', 'score': 2},
+        {'text':'banana', 'score': 3},
+      ],
     }
   ];
-  void _answer() {
+  void _answer(int score) {
+    _totalScore += score;
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
-    if (_questionIndex < _questions.length) {
-      print('You have more questions!');
-    } else {
-      print('You are done!');
-    }
+    // if (_questionIndex < _questions.length) {
+    //   print('You have more questions!');
+    // } else {
+    //   print('You are done!');
+    // }
   }
 
   @override
@@ -51,7 +65,7 @@ class _MyAppState extends State<MyApp> {
                 quizIndex: _questionIndex,
                 quizAnswer: _answer,
                 quizQues: _questions)
-            : Alert(),
+            : Alert(_totalScore),
       ),
     );
   }
